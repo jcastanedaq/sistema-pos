@@ -40,3 +40,7 @@
         }
     }
 </style>
+
+@livewireStyles
+
+@livewireScripts

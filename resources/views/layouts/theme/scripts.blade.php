@@ -14,4 +14,17 @@
     <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
     <script src="{{ asset('plugins/nicescroll/nicescroll.js') }}"></script>
     <script src="{{ asset('plugins/currency/currency.js') }}"></script>
+
+    <script>
+        function noty(msg, option = 1)
+        {
+            Snackbar.show({
+                text: msg.toUpperCase(),
+                actionText: 'CERRAR',
+                actionTextColor: '#FFF',
+                backgroundColor: option == 1 ? '#3b3f5c' : '#e7515a',
+                pos: 'top-right'
+            });
+        }
+    </script>
     <!-- END GLOBAL MANDATORY SCRIPTS -->

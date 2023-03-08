@@ -22,6 +22,11 @@ class Categories extends Component
         $this->componentName = 'Categorías';
     }
 
+    public function paginationView()
+    {
+        return 'vendor.livewire.bootstrap';
+    }
+
 
     public function render()
     {
@@ -35,5 +40,20 @@ class Categories extends Component
         return view('livewire.category.categories', ['data' => $data,])
         ->extends('layouts.theme.app')
         ->section('content');
+    }
+
+    public function Edit($id)
+    {
+        $record = Category::find($id, ['id', 'name', 'image']);
+        $this->name = $record->name;
+        $this->selected_id = $record->id;
+        $this->image = null;
+
+        $this->emit('show-modal', 'show modal!');
+    }
+
+    public function resetUI()
+    {
+
     }
 }

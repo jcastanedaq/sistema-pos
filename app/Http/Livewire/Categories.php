@@ -52,8 +52,44 @@ class Categories extends Component
         $this->emit('show-modal', 'show modal!');
     }
 
+    public function Store()
+    {
+        $rules = [
+            'name' => 'required|unique:categories|min:3',
+        ];
+
+        $messages = [
+            'name.required' => 'El nombre de la categoria es necesario',
+            'name.unique' => 'El nombre de la categoria ya existe',
+            'name.min' => 'Se requieren minimo 3 caracteres',
+        ];
+
+        $this->validate($rules, $messages);
+
+        $category = Category::create([
+            'name' => $this->name,
+        ]);
+
+        $customFileName;
+        if($this->image)
+        {
+            $customFileName = uniqid(). '_.' . $this->image->extension();
+            $this->image->storeAs('public/categories', $customFileName);
+
+            $category->image = $customFileName;
+            $category->save();
+        }
+
+        $this->resetUI();
+
+        $this->emit('category-added','categoria registrada');
+    }
+
     public function resetUI()
     {
-
+        $this->name = '';
+        $this->image = null;
+        $this->searchbox = '';
+        $this->selected_id = 0;
     }
 }

@@ -27,6 +27,10 @@ class Categories extends Component
         return 'vendor.livewire.bootstrap';
     }
 
+    protected $listeners = [
+        'deleteRow' => 'Destroy'
+    ];
+
 
     public function render()
     {
@@ -116,15 +120,33 @@ class Categories extends Component
 
             if($imageName != null)
             {
-                if(file_exists('storage/categories'.$imageName))
+                if(file_exists('storage/categories/'.$imageName))
                 {
-                    unlink('storage/categories'.$fileName);
+                    unlink('storage/categories/'.$imageName);
                 }
             }
         }
 
         $this->resetUI();
         $this->emit('category-updated', 'Categoria actualizada');
+    }
+
+    public function Destroy(Category $category)
+    {
+        $imageName = $category->image;
+        $category->delete();
+
+        if($imageName != null)
+        {
+            if(file_exists('storage/categories/'.$imageName))
+            {
+                unlink('storage/categories/'.$imageName);
+            }
+        }
+
+
+        $this->resetUI();
+        $this->emit('category-deleted', 'Categoria eliminada');
     }
 
     public function resetUI()

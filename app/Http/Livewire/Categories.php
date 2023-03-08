@@ -85,6 +85,48 @@ class Categories extends Component
         $this->emit('category-added','categoria registrada');
     }
 
+    public function Update()
+    {
+        $rules = [
+            'name' => "required|min:3|unique:categories,name,{$this->selected_id}",
+        ];
+
+        $messages = [
+            'name.required' => 'Nombre de categoria requerido',
+            'name.min' => 'El nombre de la categoria debe de tener al menos 3 carateres',
+            'name.unique' => 'El nombre de la categoria ya existe',
+        ];
+
+        $this->validate($rules, $messages);
+
+        $category = Category::find($this->selected_id);
+        $category->update([
+            'name' => $this->name,
+        ]);
+
+        if($this->image)
+        {
+            $customFileName = uniqid().'_.'.$this->image->extension();
+            $this->image->storeAs('public/categories', $customFileName);
+
+            $imageName = $category->image;
+
+            $category->image = $customFileName;
+            $category->save();
+
+            if($imageName != null)
+            {
+                if(file_exists('storage/categories'.$imageName))
+                {
+                    unlink('storage/categories'.$fileName);
+                }
+            }
+        }
+
+        $this->resetUI();
+        $this->emit('category-updated', 'Categoria actualizada');
+    }
+
     public function resetUI()
     {
         $this->name = '';

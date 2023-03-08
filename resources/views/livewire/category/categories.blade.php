@@ -64,5 +64,9 @@
         window.livewire.on('category-added', msg => {
             $('#theModal').modal('hide');
         });
+
+        window.livewire.on('category-updated', msg => {
+            $('#theModal').modal('hide');
+        });
     });
 </script>

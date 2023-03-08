@@ -60,5 +60,9 @@
         window.livewire.on('show-modal', msg => {
             $('#theModal').modal('show');
         });
+
+        window.livewire.on('category-added', msg => {
+            $('#theModal').modal('hide');
+        });
     });
 </script>

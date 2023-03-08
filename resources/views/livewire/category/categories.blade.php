@@ -11,7 +11,7 @@
                     </li>
                 </ul>
             </div>
-            Search
+            @include('common.searchbox')
 
             <div class="widget-content">
                 <div class="table-responsive">
@@ -53,7 +53,7 @@
             </div>
         </div>
     </div>
-    Include form
+    @include('livewire.category.form')
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function(){

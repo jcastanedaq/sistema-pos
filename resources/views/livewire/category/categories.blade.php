@@ -48,7 +48,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    Pagination
+                    {{ $data->links() }}
                 </div>
             </div>
         </div>
@@ -57,6 +57,8 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function(){
-
+        window.livewire.on('show-modal', msg => {
+            $('#theModal').modal('show');
+        });
     });
 </script>

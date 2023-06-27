@@ -29,7 +29,7 @@
                                 <td><h6>{{ $item->name }}</h6></td>
                                 <td class="text-center">
                                     <span>
-                                        <img src="{{ asset('storage/categories/'.$item->image) }}" alt="imagen de ejemplo" height="70" width="80" class="rounded">
+                                        <img src="{{ asset('storage/categories/'.$item->imagen) }}" alt="imagen de ejemplo" style="width: 15%; aspect-ratio: 2/3;     object-fit: contain; mix-blend-mode: darken;" class="rounded">
                                     </span>
                                 </td>
                                 <td class="text-center">

@@ -59,7 +59,7 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function(){
-        wwindow.livewire.on('item-added', msg => {
+        window.livewire.on('item-added', msg => {
             $('#theModal').modal('hide');
         });
 
@@ -84,7 +84,7 @@
         });
     });
 
-    ffunction Confirm(id)
+    function Confirm(id)
     {
         swal({
             'title':'CONFIRMAR',

@@ -12,6 +12,7 @@ class Coins extends Component
     use WithPagination;
     use WithFileUploads;
 
+    public $selected_id, $type, $value, $image;
     public $componentName, $pageTitle;
 
     public function paginationView()
@@ -23,6 +24,7 @@ class Coins extends Component
     {
         $this->componentName = 'Denominaciones';
         $this->pageTitle = 'Listado';
+        $this->selected_id = 0;
     }
     public function render()
     {

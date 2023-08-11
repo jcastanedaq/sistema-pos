@@ -64,7 +64,7 @@
     @include('livewire.products.form')
 </div>
 <script>
-    document.addEventLister('DOMContentLoaded', function(){
+    document.addEventListener('DOMContentLoaded', function(){
 
         window.livewire.on('product-added', msg => {
             $('#theModal').modal('hide');
@@ -83,7 +83,7 @@
         });
 
         window.livewire.on('modal-hide', msg => {
-            $('#theModal').modal('show');
+            $('#theModal').modal('hide');
         });
 
         window.livewire.on('hidden.bs.modal', msg => {

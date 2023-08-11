@@ -13,7 +13,7 @@ class Products extends Component
     use WithPagination;
     use WithFileUploads;
 
-    public $name, $barcode, $cost, $price, $stock, $alerts, $categoryid, $search, $image, $selected_id, $pageTitle, $componentName;
+    public $name, $barcode, $cost, $price, $stock, $alerts, $category_id, $search, $image, $selected_id, $pageTitle, $componentName;
 
     private $pagination = 5;
 
@@ -26,7 +26,7 @@ class Products extends Component
     {
         $this->pageTitle = 'Listado';
         $this->componentName = 'Productos';
-        $this->category_id = 'Selecciona..';
+        $this->category_id = 'Elegir';
     }
     
     public function render()
@@ -52,5 +52,59 @@ class Products extends Component
         ])
         ->extends('layouts.theme.app')
         ->section('content');
+    }
+
+    public function Store()
+    {
+        $rules = [
+            'name' => 'required|unique:products|min:3',
+            'cost' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'alerts' => 'required',
+            'category_id' => 'required|not_in:Elegir',
+
+        ];
+
+        $messages = [
+            'name.required' => 'Nombre del producto requerido',
+            'name.unique' => 'Ya existe el nombre del producto',
+            'name.min' => 'El nombre del producto debe tener al menos 3 caracteres',
+            'cost.required' => 'El costo es requerido',
+            'price.required' => 'El precio es requerido',
+            'stock.rquired' => 'El stock es requerido',
+            'alerts.required' => 'Ingresa el valor minimo en existencias',
+            'category_id.not_in' => 'Eligue un nombre de categoria diferente de Elegir'
+        ];
+
+        $this->validate($rules, $messages);
+
+        $product = Product::create([
+            'name' => $this->name,
+            'cost' => $this->cost,
+            'price' => $this->price,
+            'barcode' => $this->barcode,
+            'stock' => $this->stock,
+            'alerts' => $this->alerts,
+            'category_id' => $this->category_id,
+        ]);
+
+        if($this->image)
+        {
+            $customFileName = uniqid().'_.'.$this->image->extension();
+            $this->image->storeAs('public/products', $customFileName);
+
+            $product->image = $customFileName;
+            $product->save();
+        }
+
+        $this->resetUI();
+        $this->emit('product-added', 'Producto Registrado');
+    }
+
+
+    public function resetUI()
+    {
+
     }
 }

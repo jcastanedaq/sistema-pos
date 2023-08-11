@@ -75,7 +75,7 @@
         });
 
         window.livewire.on('product-deleted', msg => {
-            $('#theModal').modal('show');
+            $('#theModal').modal('hide');
         });
 
         window.livewire.on('modal-show', msg => {
@@ -91,4 +91,23 @@
         });
 
     });
+
+    function Confirm(id)
+    {
+        swal({
+            'title':'CONFIRMAR',
+            'text':'¿Confirmas eliminar el registro?',
+            'type':'warning',
+            'showCancelButton':true,
+            'cancelButtonText':'Cerrar',
+            'canceButtonColor':'#fff',
+            'confirmButtonColor':'#3b3f5c',
+            'confirmButtonText':'Aceptar',
+        }).then(function(result){
+            if(result.value){
+                window.livewire.emit('deleteRow', id);
+                swal.close();
+            }
+        })
+    }
 </script>

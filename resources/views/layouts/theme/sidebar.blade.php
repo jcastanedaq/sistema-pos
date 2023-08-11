@@ -2,7 +2,7 @@
             
             <nav id="compactSidebar">
                 <ul class="menu-categories">
-                    <li class="menu active">
+                    <li class="active">
                         <a href="{{ url('categories') }}" data-active="true" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -12,7 +12,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="{{ url('products') }}" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -22,7 +22,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="#" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -32,7 +32,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="#" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -42,7 +42,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="#" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -52,7 +52,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="#" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -62,7 +62,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="#" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -72,7 +72,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="{{ url('coins') }}" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -82,7 +82,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="#" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">
@@ -92,7 +92,7 @@
                             </div>
                         </a>
                     </li>
-                    <li class="menu">
+                    <li class="">
                         <a href="#" data-active="false" class="menu-toggle">
                             <div class="base-menu">
                                 <div class="base-icons">

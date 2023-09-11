@@ -10,8 +10,21 @@ class Denomination extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'type',
         'value',
         'image'
     ];
+
+    public function getImagenAttribute()
+    {
+        if($this->image == null)
+        return 'noimg.jpg';
+        
+        if(file_exists('storage/denominations/'. $this->image))
+        {
+            return 'denominations/'.$this->image;
+        } else {
+            return 'noimg.jpg';
+        }
+    }
 }

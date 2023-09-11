@@ -27,11 +27,11 @@
                         <tbody>
                             @foreach($data as $item)
                             <tr>
-                                <td><h6>{{ $item->name }}</h6></td>
-                                <td><h6>$ {{ number_format($item->value,2) }}</h6></td>
+                                <td><h6>{{ $item->type }}</h6></td>
+                                <td class="text-center"><h6>$ {{ number_format($item->value,2) }}</h6></td>
                                 <td class="text-center">
                                     <span>
-                                        <img src="{{ asset('storage/coins/'.$item->imagen) }}" alt="imagen de ejemplo" style="width: 15%; aspect-ratio: 2/3;     object-fit: contain; mix-blend-mode: darken;" class="rounded">
+                                        <img src="{{ asset('storage/'.$item->imagen) }}" alt="imagen de ejemplo" style="width: 15%; aspect-ratio: 2/3;     object-fit: contain; mix-blend-mode: darken;" class="rounded">
                                     </span>
                                 </td>
                                 <td class="text-center">

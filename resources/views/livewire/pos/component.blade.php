@@ -1,4 +1,20 @@
 <div>
-    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
-    Estamos
+    <style></style>
+
+    <div class="row layout-top-spacing">
+        <div class="col-sm-12 col-md-8">
+            {{-- DETALLES --}}
+            @include('livewire.pos.partials.detail')
+        </div>
+        <div class="col-sm-12 col-md-4">
+            {{-- TOTAL --}}
+            @include('livewire.pos.partials.total')
+            {{-- DENOMINACIONES --}}
+            @include('livewire.pos.partials.coins')
+        </div>
+    </div>
 </div>
+
+<script>
+    
+</script>

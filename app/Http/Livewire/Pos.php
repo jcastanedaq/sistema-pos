@@ -139,4 +139,32 @@ class Pos extends Component
         }
     }
 
+    public function removeItem($productId)
+    {
+        Cart::remove($productId);
+
+        $this->total = Cart::getTotal();
+        $this->itemQuantity = Cart::getTotalQuantity();
+
+        $this->emit('scan-ok', 'Producto eliminado');
+    }
+
+    public function decreaseQty($productId)
+    {
+        $item = Cart::get($productId);
+        Cart::remove($productId);
+
+        $newQty = ($item->quantity) - 1;
+
+        if($newQty > 0)
+        {
+            Cart::add($item->id, $item->name, $item->price, $newQty, $item->attributes[0]);
+        }
+
+        $this->total = Cart::getTotal();
+        $this->itemQuantity = Cart::getTotalQuantity();
+
+        $this->emit('scan-ok', 'Cantidad actualizada');
+    }
+
 }

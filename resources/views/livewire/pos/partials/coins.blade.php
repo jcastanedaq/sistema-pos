@@ -6,7 +6,7 @@
                 <div class="row">
                     @foreach($denominations as $item)
                         <div class="col-sm mt-2">
-                            <button wirre:click.prevent="ACash({{ $item->value }})" class="btn btn-dark btn-block den">
+                            <button wire:click.prevent="ACash({{ $item->value }})" class="btn btn-dark btn-block den">
                                 {{ $item->value > 0 ? '$' . number_format($item->value, 2, '.', '') : 'Exacto' }}
                             </button>
                         </div>

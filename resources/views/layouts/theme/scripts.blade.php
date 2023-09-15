@@ -14,6 +14,7 @@
     <script src="{{ asset('plugins/notification/snackbar/snackbar.min.js') }}"></script>
     <script src="{{ asset('plugins/nicescroll/nicescroll.js') }}"></script>
     <script src="{{ asset('plugins/currency/currency.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
         function noty(msg, option = 1)

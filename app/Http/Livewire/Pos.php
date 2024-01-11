@@ -176,7 +176,7 @@ class Pos extends Component
         $this->efectivo = 0;
         $this->change = 0;
         $this->total = Cart::getTotal();
-        $this->itemsQuantity = Cart::getTotalQuaintity();
+        $this->itemsQuantity = Cart::getTotalQuantity();
 
         $this->emit('scan-ok', 'Carrito Vacio');
     }

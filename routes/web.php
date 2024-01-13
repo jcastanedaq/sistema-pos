@@ -32,5 +32,5 @@ Route::get('/products', Products::class);
 Route::get('/coins', Coins::class);
 Route::get('/pos', Pos::class);
 Route::get('/roles', Roles::class);
-Route::get('/roles', Permissions::class);
+Route::get('/permissions', Permissions::class);
 

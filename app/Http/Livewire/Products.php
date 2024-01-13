@@ -207,5 +207,6 @@ class Products extends Component
         $this->category_id = 'Elegir';
         $this->image = null;
         $this->selected_id = 0;
+        $this->resetValidation();
     }
 }

@@ -5,6 +5,7 @@ use App\Http\Livewire\Coins;
 use App\Http\Livewire\Roles;
 use App\Http\Livewire\Products;
 use App\Http\Livewire\Categories;
+use App\Http\Livewire\Permissions;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,4 +32,5 @@ Route::get('/products', Products::class);
 Route::get('/coins', Coins::class);
 Route::get('/pos', Pos::class);
 Route::get('/roles', Roles::class);
+Route::get('/roles', Permissions::class);
 

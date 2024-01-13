@@ -99,7 +99,7 @@ class Permissions extends Component
 
     public function Destroy($id)
     {
-        $rolesCount = Permission::find($id)->getRolesNames->count();
+        $rolesCount = Permission::find($id)->getRoleNames()->count();
 
         if($rolesCount > 0)
         {

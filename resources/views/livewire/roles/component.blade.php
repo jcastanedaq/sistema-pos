@@ -3,7 +3,7 @@
         <div class="widget widget-chart-one">
             <div class="widget-heading">
                 <h4 class="card-title">
-                    <b>{{ $componentName }} | {{ $pagetitle }}</b>
+                    <b>{{ $componentName }} | {{ $pageTitle }}</b>
                 </h4>
                 <ul class="tabs tab-pills">
                     <li>
@@ -19,8 +19,8 @@
                         <thead class="text-white" style="background: #3B3F5C">
                             <tr>
                                 <th class="table-th text-white">ID</th>
-                                <th class="table-th text-white">Descripcion</th>
-                                <th class="table-th text-white">Actions</th>
+                                <th class="table-th text-white text-center">Descripcion</th>
+                                <th class="table-th text-white text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,7 +52,7 @@
     @include('livewire.roles.form')
 </div>
 <script>
-    document.addEventLister('DOMContentLoaded', function(){
+    document.addEventListener('DOMContentLoaded', function(){
 
         window.livewire.on('role-added', Msg => {
             $('#theModal').modal('hide');
@@ -86,14 +86,8 @@
 
     });
 
-    function Confirm(id, products)
+    function Confirm(id)
     {
-        if(products > 0)
-        {
-            swal('No se puede eliminar la categoria por que tiene productos relacionados')
-
-            return;
-        }
         swal({
             'title':'CONFIRMAR',
             'text':'¿Confirmas eliminar el registro?',
@@ -105,7 +99,7 @@
             'confirmButtonText':'Aceptar',
         }).then(function(result){
             if(result.value){
-                window.livewire.emit('deleteRow', id);
+                window.livewire.emit('Destroy', id);
                 swal.close();
             }
         })
